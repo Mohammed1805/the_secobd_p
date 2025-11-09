@@ -1,0 +1,15 @@
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    metric_id VARCHAR(20) NOT NULL UNIQUE, -- The final ID, e.g., CS11250001
+    full_name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL, -- NEVER store plain text passwords!
+    
+    -- Components of the metric_id
+    section_code VARCHAR(5) NOT NULL,   -- e.g., 'CS', 'IT'
+    session_code TINYINT(1) NOT NULL,   -- e.g., 1, 2, 3
+    study_level_code TINYINT(1) NOT NULL, -- e.g., 1, 2
+    registration_year SMALLINT(4) NOT NULL, -- e.g., 2025
+    
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
